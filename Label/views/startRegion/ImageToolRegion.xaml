@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              Background="White"
              d:DesignHeight="700" d:DesignWidth="700">
+
     <UserControl.Resources>
         <Style TargetType="Button" BasedOn="{x:Null}">
             <Setter Property="Width" Value="64"/>
@@ -33,6 +34,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <SolidColorBrush x:Key="liteBlue" Color="#FA32EE" >
+
+        </SolidColorBrush>
     </UserControl.Resources>
     
     
@@ -40,7 +44,7 @@
         <UniformGrid Rows="4" Columns="4" >
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button >
-                    <Image Source="C:\project\MikiAi\Label\resources\imagetool\imagecut.png" Stretch="UniformToFill" />
+                    <Image Source="/resources/imagetool/imagecut.png" Stretch="UniformToFill" />
                 </Button>
                 <TextBlock Margin="0,12,0,0" HorizontalAlignment="Center" Foreground="gray" >Image cut</TextBlock>
             </StackPanel>

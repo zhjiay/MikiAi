@@ -1,0 +1,65 @@
+﻿<Window x:Class="Label.resources.ColorLabels"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Label.resources"
+        mc:Ignorable="d"
+        Title="ColorLabels" Height="600" Width="800">
+    <Window.Resources>
+        <Style TargetType="Border" >
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Roboto"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel VerticalAlignment="Stretch" >
+                <Border Width="160" Height="120" Background="{StaticResource thinblue}" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >thinblue</TextBlock>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Stretch" >
+                <Border Width="160" Height="120" Background="{StaticResource lessblue}" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >lessblue</TextBlock>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Stretch" >
+                <Border Width="160" Height="120" Background="{StaticResource theblue}" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >theblue</TextBlock>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Stretch" >
+                <Border Width="160" Height="120" Background="{StaticResource moreblue}" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >moreblue</TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel VerticalAlignment="Stretch" >
+                <Border Width="160" Height="120" Background="{StaticResource thingray}" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >thingray</TextBlock>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Stretch" >
+                <Border Width="160" Height="120" Background="{StaticResource lessgray}" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >lessgray</TextBlock>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Stretch" >
+                <Border Width="160" Height="120" Background="{StaticResource thegray}" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >thegray</TextBlock>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Stretch" >
+                <Border Width="160" Height="120" Background="{StaticResource moregray}" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >moregray</TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

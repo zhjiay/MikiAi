@@ -28,7 +28,7 @@ namespace Label.views
 
             
             this.DataContext = this;
-            CurrentView = new ImageToolRegion();
+            CurrentView = new WorkSpaceRegion();
         }
         private object currentView;
 

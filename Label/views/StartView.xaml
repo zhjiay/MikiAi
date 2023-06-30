@@ -7,14 +7,16 @@
         xmlns:local="clr-namespace:Label.views"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Icon="pack://application:,,,/Resources/starticon.png"
+        Icon="pack://application:,,,/resources/starticon.png"
         ResizeMode="NoResize"
+        
         Title="Welcome to MikiAi" Height="720" Width="980">
     <Window.Resources>
         <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignSubtitle2TextBlock}">
-            <Setter Property="FontWeight" Value="Black"/>
+            <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="FontFamily" Value="Robot"/>
         </Style>
         <Style TargetType="RadioButton">
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -30,11 +32,11 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" TargetName="xBorder" Value="#E3F2FD"/>
-                                <Setter Property="BorderBrush" TargetName="xBorder" Value="#E3F2FD"/>
+                                <Setter Property="Background" TargetName="xBorder" Value="{StaticResource thinblue}"/>
+                                <Setter Property="BorderBrush" TargetName="xBorder" Value="{StaticResource thinblue}"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter Property="Background" TargetName="xBorder" Value="#2196F3"/>
+                                <Setter Property="Background" TargetName="xBorder" Value="{StaticResource theblue}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -50,8 +52,8 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Background="#F5F5F5" >
-            <Grid Background="Transparent" Margin="20,0,20,0" Name="xGrid" >
+        <Border Background="{StaticResource thingray}" >
+            <Grid Margin="20,0,20,0" Name="xGrid" >
 
                 <StackPanel VerticalAlignment="Top" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,50,0,0" >
                     <RadioButton GroupName="name1" >
@@ -70,7 +72,7 @@
                         <TextBlock>Detection</TextBlock>
                     </RadioButton>
                     <RadioButton GroupName="name1" >
-                        <TextBlock>Image Tool</TextBlock>
+                        <TextBlock>Tools</TextBlock>
                     </RadioButton>
                 </StackPanel>
 

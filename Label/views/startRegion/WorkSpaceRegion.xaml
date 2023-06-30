@@ -25,13 +25,13 @@
                         <Setter Property="Margin" Value="8,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Button >
+                <Button Name="xAddProject" Click="xAddProject_Click" >
                     <materialDesign:PackIcon Kind="FolderPlusOutline" Width="32" Height="24" />
                 </Button>
-                <Button >
+                <Button Name="xEditProject" Click="xEditProject_Click" >
                     <materialDesign:PackIcon Kind="FolderEditOutline" Width="32" Height="24"  />
                 </Button>
-                <Button >
+                <Button Name="xWorkProject" Click="xWorkProject_Click" >
                     <materialDesign:PackIcon Kind="FolderPlayOutline" Width="32" Height="24"  />
                 </Button>
             </StackPanel>

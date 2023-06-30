@@ -24,5 +24,22 @@ namespace Label.views.startRegion
         {
             InitializeComponent();
         }
+
+        private void xAddProject_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn=(Button)sender;
+            Console.WriteLine("test");
+            Console.WriteLine(btn.Background.ToString());
+        }
+
+        private void xEditProject_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void xWorkProject_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
