@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Label.views.startRegion.WorkSpaceRegion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Label.views.startRegion"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="700">
+
+    <Grid Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Border Margin="32,32,32,0" Background="White" >
+            
+        </Border>
+
+        <Border Background="White" Grid.Row="1" BorderBrush="#F5F5F5" BorderThickness="0,1,0,0" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,32,0" >
+                <StackPanel.Resources>
+                    <Style TargetType="Button"  BasedOn="{StaticResource MaterialDesignRaisedSecondaryButton}">
+                        <Setter Property="Margin" Value="8,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button >
+                    <materialDesign:PackIcon Kind="FolderPlusOutline" Width="32" Height="24" />
+                </Button>
+                <Button >
+                    <materialDesign:PackIcon Kind="FolderEditOutline" Width="32" Height="24"  />
+                </Button>
+                <Button >
+                    <materialDesign:PackIcon Kind="FolderPlayOutline" Width="32" Height="24"  />
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
