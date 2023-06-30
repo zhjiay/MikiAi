@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
             <Border Name="xTitle" >
                 <Grid>
-                    <ProgressBar Name="xProBar" Foreground="LightGreen"  Minimum="0" Maximum="100" Value="76"  Height="{Binding ElementName=xTitle,Path=ActualHeight}" ></ProgressBar>
+                    <ProgressBar Name="xProBar" Foreground="{StaticResource lessblue}"  Minimum="0" Maximum="100" Value="76"  Height="{Binding ElementName=xTitle,Path=ActualHeight}" ></ProgressBar>
                     <DockPanel LastChildFill="False" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="{Binding ElementName=xTitle,Path=ActualHeight}" >
                         <TextBlock DockPanel.Dock="Top" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" >New Project</TextBlock>
                         <TextBlock DockPanel.Dock="Bottom" Style="{StaticResource MaterialDesignPasswordHelperTextBlock}"  >完成度 75%</TextBlock>
@@ -32,7 +32,7 @@
             </Border>
 
             <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="2" Grid.Row="2" LastChildFill="False" >
-                <TextBlock VerticalAlignment="Bottom" >2023/06/30</TextBlock>
+                <TextBlock VerticalAlignment="Bottom" FontFamily="Roboto" >2023/06/30</TextBlock>
 
                 <Button DockPanel.Dock="Right" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" Padding="4,0" Height="24"  >
                     <materialDesign:PackIcon Kind="Menu" Margin="0" />

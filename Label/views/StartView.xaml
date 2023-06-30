@@ -9,7 +9,6 @@
         WindowStartupLocation="CenterScreen"
         Icon="pack://application:,,,/resources/starticon.png"
         ResizeMode="NoResize"
-        
         Title="Welcome to MikiAi" Height="720" Width="980">
     <Window.Resources>
         <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignSubtitle2TextBlock}">
@@ -52,35 +51,35 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Background="{StaticResource thingray}" >
-            <Grid Margin="20,0,20,0" Name="xGrid" >
+        <Grid Background="{StaticResource thingray}" Name="xGrid1" >
 
-                <StackPanel VerticalAlignment="Top" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,50,0,0" >
-                    <RadioButton GroupName="name1" >
+            <Grid Margin="20,0,20,0" Name="xGrid" Grid.Row="1" >
+                <StackPanel VerticalAlignment="Top" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,32,0,0" >
+                    <RadioButton GroupName="name1" Click="Click_Navigate" CommandParameter="1" >
                         <TextBlock  Text="WorkSapce"  />
                     </RadioButton>
-                    <RadioButton GroupName="name1" >
+                    <RadioButton GroupName="name1" Click="Click_Navigate" CommandParameter="2" >
                         <TextBlock>Classification</TextBlock>
                     </RadioButton>
-                    <RadioButton GroupName="name1" >
+                    <RadioButton GroupName="name1" Click="Click_Navigate" CommandParameter="3" >
                         <TextBlock>Localization</TextBlock>
                     </RadioButton>
-                    <RadioButton GroupName="name1" >
+                    <RadioButton GroupName="name1" Click="Click_Navigate" CommandParameter="4" >
                         <TextBlock>Segmentation</TextBlock>
                     </RadioButton>
-                    <RadioButton GroupName="name1" >
+                    <RadioButton GroupName="name1" Click="Click_Navigate" CommandParameter="5" >
                         <TextBlock>Detection</TextBlock>
                     </RadioButton>
-                    <RadioButton GroupName="name1" >
+                    <RadioButton GroupName="name1" Click="Click_Navigate" CommandParameter="6" >
                         <TextBlock>Tools</TextBlock>
                     </RadioButton>
                 </StackPanel>
 
-                <RadioButton VerticalAlignment="Bottom" GroupName="name1" >
+                <RadioButton VerticalAlignment="Bottom" GroupName="name1" Click="Click_Navigate" CommandParameter="0" >
                     <materialDesign:PackIcon Kind="CogOutline" Width="36" Height="36" HorizontalAlignment="Center" />
                 </RadioButton>
             </Grid>
-        </Border>
+        </Grid>
 
         <Grid Grid.Column="1">
             <ContentControl x:Name="NavigationView" Content="{Binding CurrentView}"/>

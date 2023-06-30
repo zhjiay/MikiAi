@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Label.views.startRegion.RegionModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +25,25 @@ namespace Label.views.startRegion
         public WorkSpaceRegion()
         {
             InitializeComponent();
+            this.DataContext= this;
         }
+
+        public ObservableCollection<ProjectInfoModel> ProjectInfos { get; set; } = new ObservableCollection<ProjectInfoModel>()
+        {
+            new ProjectInfoModel("Project1",100,"2023/06/30"),
+            new ProjectInfoModel("Project2",98,"2023/06/30"),
+            new ProjectInfoModel("Project3",94,"2023/06/30"),
+            new ProjectInfoModel("Project4",89,"2023/06/30"),
+            new ProjectInfoModel("Project3",94,"2023/06/30"),
+            new ProjectInfoModel("Project4",89,"2023/06/30"),
+            new ProjectInfoModel("Project3",94,"2023/06/30"),
+            new ProjectInfoModel("Project4",89,"2023/06/30"),
+            new ProjectInfoModel("Project3",94,"2023/06/30"),
+            new ProjectInfoModel("Project3",94,"2023/06/30"),
+            new ProjectInfoModel("Project4",89,"2023/06/30"),
+            new ProjectInfoModel("Project4",89,"2023/06/30"),
+            new ProjectInfoModel("Project5",75,"2023/07/01"),
+        };
 
         private void xAddProject_Click(object sender, RoutedEventArgs e)
         {
@@ -38,6 +58,16 @@ namespace Label.views.startRegion
         }
 
         private void xWorkProject_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ListView_MouseWheel(object sender, MouseWheelEventArgs e)
         {
 
         }

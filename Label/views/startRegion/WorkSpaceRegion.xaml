@@ -4,9 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:cvt="clr-namespace:Label.converters"
              xmlns:local="clr-namespace:Label.views.startRegion"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="700">
+    <UserControl.Resources>
+        <cvt:IToS_Process_Converter x:Key="IToS_Pro"/>
+    </UserControl.Resources>
 
     <Grid Background="White" >
         <Grid.RowDefinitions>
@@ -14,24 +18,124 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Border Margin="32,32,32,0" Background="White" >
-            
+        <Border Margin="4" >
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <ListView ItemsSource="{Binding ProjectInfos}" Style="{StaticResource MaterialDesignListView}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" MouseWheel="ListView_MouseWheel" >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate   >
+                            <Border Name="xBorder" Background="White" Width="300" Height="180" BorderThickness="1"
+                                    BorderBrush="{StaticResource lessgray}"
+                                    Margin="0" CornerRadius="5" >
+                                <Border.Effect>
+                                    <DropShadowEffect Color="{StaticResource MaterialDesignShadow}" Opacity="0.15" />
+                                </Border.Effect>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1.2*"/>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Name="xTitle"  >
+                                        <Grid>
+                                            <ProgressBar Name="xProBar" Foreground="{StaticResource lessblue}"  Minimum="0" Maximum="100" Value="{Binding ProcessNumber}"  Height="{Binding ElementName=xTitle,Path=ActualHeight}" ></ProgressBar>
+                                            <DockPanel LastChildFill="False" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="{Binding ElementName=xTitle,Path=ActualHeight}" >
+                                                <TextBlock DockPanel.Dock="Top" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" FontWeight="Bold" FontFamily="Roboto" Text="{Binding Title}" ></TextBlock>
+                                                <TextBlock DockPanel.Dock="Bottom" Style="{StaticResource MaterialDesignBody2TextBlock}"  FontFamily="Roboto"  Text="{Binding ProcessNumber,Converter={StaticResource IToS_Pro}}"  ></TextBlock>
+                                            </DockPanel>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Margin="16" Background="{Binding ElementName=xProBar,Path=Background}" CornerRadius="2" >
+                                        <Grid  >
+                                            <TextBlock FontFamily="Roboto"  >something show</TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                                    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="2" Grid.Row="2" LastChildFill="False" >
+                                        <TextBlock VerticalAlignment="Bottom" FontFamily="Roboto" Text="{Binding CreatTime}" ></TextBlock>
+
+                                        <Button DockPanel.Dock="Right" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" Padding="4,0" Height="24" >
+                                            <materialDesign:PackIcon Kind="Menu" Margin="0" />
+                                        </Button>
+                                    </DockPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
         </Border>
 
-        <Border Background="White" Grid.Row="1" BorderBrush="#F5F5F5" BorderThickness="0,1,0,0" >
+        <Border Margin="4,4,4,0" Background="White" Visibility="Hidden"  >
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <ItemsControl Name="xProjectInfos" ItemsSource="{Binding ProjectInfos}" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate  >
+                        <DataTemplate>
+                            <Border Name="xBorder" Background="White" Width="300" Height="180" BorderThickness="1"
+                                    BorderBrush="{StaticResource lessgray}"
+                                    Margin="12" CornerRadius="5" >
+                                <Border.Effect>
+                                    <DropShadowEffect Color="{StaticResource MaterialDesignShadow}" Opacity="0.4" />
+                                </Border.Effect>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1.2*"/>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Name="xTitle"  >
+                                        <Grid>
+                                            <ProgressBar Name="xProBar" Foreground="{StaticResource lessblue}"  Minimum="0" Maximum="100" Value="{Binding ProcessNumber}"  Height="{Binding ElementName=xTitle,Path=ActualHeight}" ></ProgressBar>
+                                            <DockPanel LastChildFill="False" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="{Binding ElementName=xTitle,Path=ActualHeight}" >
+                                                <TextBlock DockPanel.Dock="Top" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" FontWeight="Bold" FontFamily="Roboto" Text="{Binding Title}" ></TextBlock>
+                                                <TextBlock DockPanel.Dock="Bottom" Style="{StaticResource MaterialDesignBody2TextBlock}"  FontFamily="Roboto"  Text="{Binding ProcessNumber,Converter={StaticResource IToS_Pro}}"  ></TextBlock>
+                                            </DockPanel>
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Margin="16" Background="{Binding ElementName=xProBar,Path=Background}" CornerRadius="2" >
+                                        <Grid  >
+                                            <TextBlock FontFamily="Roboto"  >something show</TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                                    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="2" Grid.Row="2" LastChildFill="False" >
+                                        <TextBlock VerticalAlignment="Bottom" FontFamily="Roboto" Text="{Binding CreatTime}" ></TextBlock>
+
+                                        <Button DockPanel.Dock="Right" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" Padding="4,0" Height="24" >
+                                            <materialDesign:PackIcon Kind="Menu" Margin="0" />
+                                        </Button>
+                                    </DockPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+
+        <Border Background="White" Grid.Row="1" BorderBrush="{StaticResource lessgray}" BorderThickness="0,1,0,0" >
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,32,0" >
                 <StackPanel.Resources>
                     <Style TargetType="Button"  BasedOn="{StaticResource MaterialDesignRaisedSecondaryButton}">
                         <Setter Property="Margin" Value="8,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Button Name="xAddProject" Click="xAddProject_Click" >
+                <Button Name="xAddProject" Click="xAddProject_Click" ToolTip="添加项目" >
                     <materialDesign:PackIcon Kind="FolderPlusOutline" Width="32" Height="24" />
                 </Button>
-                <Button Name="xEditProject" Click="xEditProject_Click" >
+                <Button Name="xEditProject" Click="xEditProject_Click" ToolTip="修改选中项目" >
                     <materialDesign:PackIcon Kind="FolderEditOutline" Width="32" Height="24"  />
                 </Button>
-                <Button Name="xWorkProject" Click="xWorkProject_Click" >
+                <Button Name="xWorkProject" Click="xWorkProject_Click" ToolTip="操作选中项目" >
                     <materialDesign:PackIcon Kind="FolderPlayOutline" Width="32" Height="24"  />
                 </Button>
             </StackPanel>

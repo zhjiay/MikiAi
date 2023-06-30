@@ -24,5 +24,17 @@ namespace Label.views.startRegion
         {
             InitializeComponent();
         }
+
+        private void Click_Reset(object sender, RoutedEventArgs e)
+        {
+            Button b= (Button)sender;
+            Console.WriteLine(b.ToString());
+        }
+
+        private void Click_Save(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            Console.WriteLine(b.ToString());
+        }
     }
 }

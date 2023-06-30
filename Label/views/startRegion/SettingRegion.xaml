@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Label.views.startRegion"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="800">
+    
+    
     <Grid Background="White" >
         <Border Background="White" Margin="32,32,0,0"  >
             <Grid >
@@ -45,15 +47,16 @@
 
 
                 </Grid>
+
+                <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,32,0" Orientation="Horizontal"  >
+                    <Button  Margin="16,0" Click="Click_Reset" >
+                        <TextBlock Foreground="White">重置默认</TextBlock>
+                    </Button>
+                    <Button  Margin="16,0" Click="Click_Save" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" >
+                        <TextBlock >保存修改</TextBlock>
+                    </Button>
+                </StackPanel>
                 
-                <DockPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,32,0"  >
-                    <Button DockPanel.Dock="Left" Margin="16,0"  >
-                        <TextBlock Foreground="White" >重置默认</TextBlock>
-                    </Button>
-                    <Button DockPanel.Dock="Right" Margin="16,0" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" >
-                        <TextBlock>保存修改</TextBlock>
-                    </Button>
-                </DockPanel>
                 
             </Grid>
         </Border>    

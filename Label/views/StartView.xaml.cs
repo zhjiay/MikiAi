@@ -51,5 +51,27 @@ namespace Label.views
             get { return currentView; }
             set { SetProperty(ref currentView, value,nameof(CurrentView)); }
         }
+
+        private void Click_Navigate(object sender, RoutedEventArgs e)
+        {
+            RadioButton btn=(RadioButton)sender;
+            if(int.TryParse(btn.CommandParameter.ToString(), out int id))
+            {
+                switch(id)
+                {
+                    case 0:
+                        CurrentView=new SettingRegion();
+                        break;
+                    case 1:
+                        CurrentView=new WorkSpaceRegion();
+                        break;
+                    case 6:
+                        CurrentView=new ImageToolRegion();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }
