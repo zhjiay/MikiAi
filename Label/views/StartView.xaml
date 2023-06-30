@@ -1,0 +1,88 @@
+﻿<Window x:Class="Label.views.StartView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Label.views"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Icon="pack://application:,,,/Resources/starticon.png"
+        ResizeMode="NoResize"
+        Title="Welcome to MikiAi" Height="720" Width="980">
+    <Window.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignSubtitle2TextBlock}">
+            <Setter Property="FontWeight" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Width" Value="{Binding ElementName=xGrid,Path=ActualWidth}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton" >
+                        <Border Name="xBorder" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" CornerRadius="5" >
+                            <ContentPresenter VerticalAlignment="Center"  />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="xBorder" Value="#E3F2FD"/>
+                                <Setter Property="BorderBrush" TargetName="xBorder" Value="#E3F2FD"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="xBorder" Value="#2196F3"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#F5F5F5" >
+            <Grid Background="Transparent" Margin="20,0,20,0" Name="xGrid" >
+
+                <StackPanel VerticalAlignment="Top" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,50,0,0" >
+                    <RadioButton GroupName="name1" >
+                        <TextBlock  Text="WorkSapce"  />
+                    </RadioButton>
+                    <RadioButton GroupName="name1" >
+                        <TextBlock>Classification</TextBlock>
+                    </RadioButton>
+                    <RadioButton GroupName="name1" >
+                        <TextBlock>Localization</TextBlock>
+                    </RadioButton>
+                    <RadioButton GroupName="name1" >
+                        <TextBlock>Segmentation</TextBlock>
+                    </RadioButton>
+                    <RadioButton GroupName="name1" >
+                        <TextBlock>Detection</TextBlock>
+                    </RadioButton>
+                    <RadioButton GroupName="name1" >
+                        <TextBlock>Image Tool</TextBlock>
+                    </RadioButton>
+                </StackPanel>
+
+                <RadioButton VerticalAlignment="Bottom" GroupName="name1" >
+                    <materialDesign:PackIcon Kind="CogOutline" Width="36" Height="36" HorizontalAlignment="Center" />
+                </RadioButton>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <ContentControl x:Name="NavigationView" Content="{Binding CurrentView}"/>
+        </Grid>
+        
+    </Grid>
+</Window>
